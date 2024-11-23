@@ -14,16 +14,37 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="evpp">
-      <UniqueIdentifier>{60409248-bbbb-4772-abfd-e11dcac255ff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="evpp\udp">
-      <UniqueIdentifier>{b469eff6-89f6-437f-9f54-c2427d0db2bb}</UniqueIdentifier>
+      <UniqueIdentifier>{36ed4dfc-420f-4739-bb67-96cc9fb83115}</UniqueIdentifier>
     </Filter>
     <Filter Include="evpp\http">
-      <UniqueIdentifier>{2acee3d0-6a5d-49a1-9124-d933b005f1a0}</UniqueIdentifier>
+      <UniqueIdentifier>{6c255b58-7e6c-4162-8ed2-c61b60c26d8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\udp">
+      <UniqueIdentifier>{ce675886-b009-4e0e-9041-00f747566980}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="log.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="packet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="macros.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="net_proxy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="..\lib\evpp\evpp\any.h">
       <Filter>evpp</Filter>
     </ClInclude>
@@ -70,6 +91,9 @@
       <Filter>evpp</Filter>
     </ClInclude>
     <ClInclude Include="..\lib\evpp\evpp\listener.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\logging.h">
       <Filter>evpp</Filter>
     </ClInclude>
     <ClInclude Include="..\lib\evpp\evpp\memmem.h">
@@ -141,29 +165,14 @@
     <ClInclude Include="..\lib\evpp\evpp\udp\udp_server.h">
       <Filter>evpp\udp</Filter>
     </ClInclude>
-    <ClInclude Include="log.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="global.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="packet.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="macros.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="common.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="stl.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="net_proxy.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="packet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="net_proxy.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="..\lib\evpp\evpp\buffer.cc">
       <Filter>evpp</Filter>
     </ClCompile>
@@ -230,11 +239,10 @@
     <ClCompile Include="..\lib\evpp\evpp\udp\udp_server.cc">
       <Filter>evpp\udp</Filter>
     </ClCompile>
-    <ClCompile Include="packet.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="net_proxy.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\lib\evpp\evpp\CMakeLists.txt">
+      <Filter>evpp</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -118,7 +118,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>.;..\lib\libevent\include;..\lib\evpp;..\lib\spdlog-1.x\include;..\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\lib\libevent\include;..\lib\evpp;..\lib\spdlog\include;..\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard_C>Default</LanguageStandard_C>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
@@ -170,6 +170,7 @@
     <ClInclude Include="..\lib\evpp\evpp\invoke_timer.h" />
     <ClInclude Include="..\lib\evpp\evpp\libevent.h" />
     <ClInclude Include="..\lib\evpp\evpp\listener.h" />
+    <ClInclude Include="..\lib\evpp\evpp\logging.h" />
     <ClInclude Include="..\lib\evpp\evpp\memmem.h" />
     <ClInclude Include="..\lib\evpp\evpp\platform_config.h" />
     <ClInclude Include="..\lib\evpp\evpp\server_status.h" />
@@ -222,6 +223,9 @@
     <ClCompile Include="..\lib\evpp\evpp\udp\udp_server.cc" />
     <ClCompile Include="net_proxy.cpp" />
     <ClCompile Include="packet.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\lib\evpp\evpp\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

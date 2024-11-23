@@ -2,3 +2,4 @@
 *.pdb
 *.exe
 \x64
+\bin
