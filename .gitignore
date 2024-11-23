@@ -1,2 +1,4 @@
 .vs
-.pdb
+*.pdb
+*.exe
+\x64
