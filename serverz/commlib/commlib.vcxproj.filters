@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="evpp">
+      <UniqueIdentifier>{60409248-bbbb-4772-abfd-e11dcac255ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\udp">
+      <UniqueIdentifier>{b469eff6-89f6-437f-9f54-c2427d0db2bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evpp\http">
+      <UniqueIdentifier>{2acee3d0-6a5d-49a1-9124-d933b005f1a0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\lib\evpp\evpp\any.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\buffer.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\connector.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\dns_resolver.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\duration.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\duration.inl.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\event_loop.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\event_loop_thread.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\event_loop_thread_pool.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\event_watcher.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\fd_channel.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\gettimeofday.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\inner_pre.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\invoke_timer.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\libevent.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\listener.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\memmem.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\platform_config.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\server_status.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\slice.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\sockets.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\sys_addrinfo.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\sys_sockets.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\tcp_callbacks.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\tcp_client.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\tcp_conn.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\tcp_server.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\thread_dispatch_policy.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\timestamp.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\timestamp.inl.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\utility.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\windows_port.h">
+      <Filter>evpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\http\context.h">
+      <Filter>evpp\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\http\http_server.h">
+      <Filter>evpp\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\http\service.h">
+      <Filter>evpp\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\http\stats.h">
+      <Filter>evpp\http</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\udp\sync_udp_client.h">
+      <Filter>evpp\udp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\udp\udp_message.h">
+      <Filter>evpp\udp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\evpp\evpp\udp\udp_server.h">
+      <Filter>evpp\udp</Filter>
+    </ClInclude>
+    <ClInclude Include="log.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="packet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="macros.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="net_proxy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\lib\evpp\evpp\buffer.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\connector.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\dns_resolver.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\duration.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\event_loop.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\event_loop_thread.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\event_loop_thread_pool.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\event_watcher.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\fd_channel.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\inner_pre.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\invoke_timer.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\libevent.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\listener.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\sockets.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\tcp_client.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\tcp_conn.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\tcp_server.cc">
+      <Filter>evpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\http\context.cc">
+      <Filter>evpp\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\http\http_server.cc">
+      <Filter>evpp\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\http\service.cc">
+      <Filter>evpp\http</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\udp\sync_udp_client.cc">
+      <Filter>evpp\udp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\evpp\evpp\udp\udp_server.cc">
+      <Filter>evpp\udp</Filter>
+    </ClCompile>
+    <ClCompile Include="packet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="net_proxy.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
