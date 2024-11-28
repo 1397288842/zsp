@@ -1,13 +1,46 @@
-#include "log.hpp"
 
 #include "gateway_server.h"
 
-GatewayServer::GatewayServer()
+
+namespace gateway_server
 {
-    LogDebug("gateway server construct");
+	Server* gSrv = nullptr;
+	Server::Server()
+	{
+		LogDebug("gateway server construct");
+	}
+
+	Server::~Server()
+	{
+
+	}
+
+	void Server::Run()
+	{
+		while (true)
+		{
+			std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		}
+	}
+
+	void Server::OnAccept(const evpp::TCPConnPtr* conn)
+	{
+
+	}
+
+
+	void Server::OnClose(const evpp::TCPConnPtr& conn)
+	{
+
+	}
+
+
+	void Server::OnMessage(const evpp::TCPConnPtr& conn, const char* data, int len)
+	{
+
+	}
+
 }
 
-GatewayServer::~GatewayServer()
-{
 
-}
+

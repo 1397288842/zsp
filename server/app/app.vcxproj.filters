@@ -15,19 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="gateway_server_main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="gateway_server.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+    <ClInclude Include="app.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="gateway_server.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="gateway_server_def.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
+    <ClCompile Include="app.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

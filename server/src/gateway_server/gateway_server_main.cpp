@@ -1,9 +1,8 @@
-﻿// gateway_server.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+﻿//  此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
-#include "global.h"
-#include "log.hpp"
+//#include "global.h"
 #include <iostream>
-#include "gateway_server.h"
+//#include "gateway_server.h"
 #include "common.h"
 
 #ifdef _WIN32
@@ -20,6 +19,10 @@
 #include <evpp/tcp_conn.h>
 
 #include "net_proxy.h"
+
+#include "app.h"
+
+
 
 #ifdef _WIN32
 #ifdef _DEBUG
@@ -54,15 +57,14 @@ LONG MinidumpCrashHandler(EXCEPTION_POINTERS* pException)
 #endif // _DEBUG
 #endif // _WIN32
 
-auto gLog = std::make_shared<commlib::GlobalLog>();
-
 int main()
 {
 #ifdef _DEBUG
     SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)MinidumpCrashHandler);
 #endif // _DEBUG
 
-    gLog->init_log("./testt.log", 1);
+    auto log = std::make_shared<commlib::GlobalLog>();
+    log->init_log("./testt.log", 1);
 
     WSADATA wsaData;
 
@@ -74,6 +76,7 @@ int main()
         wprintf(L"WSAStartup failed: %d\n", iResult);
         return -1;
     }
+
     std::string addr = "0.0.0.0:9099";
     int thread_num = 4;
     evpp::EventLoop loop;
@@ -103,6 +106,15 @@ int main()
     server.Init();
     server.Start();
     loop.Run();
+
+   
+
+    //App app;
+    //app.Rigster(gSrv);
+    //capp::App app( new GatewayServer() );
+    ////app.Add(new GatewayServer());
+    //app.Start();
+    //app.Run();
 
 #ifdef _WIN32
     WSACleanup();

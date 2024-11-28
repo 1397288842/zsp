@@ -165,6 +165,15 @@
     <ClInclude Include="..\lib\evpp\evpp\udp\udp_server.h">
       <Filter>evpp\udp</Filter>
     </ClInclude>
+    <ClInclude Include="server_net.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stop_watch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="server_base.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="packet.cpp">

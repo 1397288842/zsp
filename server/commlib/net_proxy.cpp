@@ -1,10 +1,22 @@
-#include "net_proxy.h"
+﻿#include "net_proxy.h"
 #include "packet.h"
 
 namespace commlib
 {
 
-    void NetProxy::SendProto(const evpp::TCPConnPtr& conn, int cmd, char* data, int len)
+
+	NetProxy::NetProxy()
+	{
+
+	}
+
+
+	NetProxy::~NetProxy()
+	{
+
+	}
+
+	void NetProxy::SendProto(const evpp::TCPConnPtr& conn, int cmd, char* data, int len)
     {
         std::lock_guard<std::mutex> guard(mutex_);
 

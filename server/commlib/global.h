@@ -1,8 +1,9 @@
-#pragma once
-#include "common.h"
-namespace commlib
-{
-class GlobalLog;
+#ifndef __GLOBAL_H__
+#define __GLOBAL_H__
 
-extern GlobalLog* gLog;
-}
+
+
+
+#endif // __GLOBAL_H__
+
+

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef __STL_H__
+#define __STL_H__
+
 #include <map>
 #include <unordered_map>
 #include <vector>
@@ -39,3 +41,7 @@ using list = std::list<T>;
 
 template<typename T>
 using queue = std::queue<T>;
+
+#endif // !__STL_H__
+
+

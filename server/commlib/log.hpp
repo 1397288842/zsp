@@ -1,4 +1,6 @@
-#pragma once
+#ifndef __LOG_H__
+#define __LOG_H__
+
 #include "spdlog/spdlog.h"
 #include "spdlog/async.h"
 #include "spdlog/logger.h"
@@ -23,42 +25,42 @@
 using namespace std;
 namespace commlib
 {
-    class GlobalLog
-    {
-    public:
-        GlobalLog() = default;
-        ~GlobalLog() = default;
+	class GlobalLog final
+	{
+	public:
+		GlobalLog() = default;
+		~GlobalLog() = default;
 
-        bool init_log(const string& path, int level)
-        {
-            try
-            {
-                std::vector<spdlog::sink_ptr> sinks;
+		bool init_log(const string& path, int level)
+		{
+			try
+			{
+				std::vector<spdlog::sink_ptr> sinks;
 
-                auto hourly_sink = std::make_shared<spdlog::sinks::hourly_file_sink_mt>(path);
-                sinks.push_back(hourly_sink);
+				auto hourly_sink = std::make_shared<spdlog::sinks::hourly_file_sink_mt>(path);
+				sinks.push_back(hourly_sink);
 
-                auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
-                sinks.push_back(console_sink);
+				auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
+				sinks.push_back(console_sink);
 
-                _logger = std::make_shared<spdlog::logger>("", sinks.begin(), sinks.end());
-                spdlog::set_default_logger(_logger);
+				_logger = std::make_shared<spdlog::logger>("", sinks.begin(), sinks.end());
+				spdlog::set_default_logger(_logger);
 
-                spdlog::set_pattern("[%x %T.%e %t %^%l%$] %s(%#): %v");
-                spdlog::flush_on(spdlog::level::warn);
-                spdlog::set_level(spdlog::level::level_enum(level));
-            }
-            catch (const std::exception& e)
-            {
-                printf("init spdlog failed err:%s\n", e.what());
-                return false;
-            }
-            return true;
-        }
+				spdlog::set_pattern("[%x %T.%e %t %^%l%$] %s(%#): %v");
+				spdlog::flush_on(spdlog::level::warn);
+				spdlog::set_level(spdlog::level::level_enum(level));
+			}
+			catch (const std::exception& e)
+			{
+				printf("init spdlog failed err:%s\n", e.what());
+				return false;
+			}
+			return true;
+		}
 
-    private:
-        std::shared_ptr<spdlog::logger> _logger;
-    };
+	private:
+		std::shared_ptr<spdlog::logger> _logger;
+	};
 }
 
 #define  LogTrace(fmt, ...)    spdlog::log({ __FILE__, __LINE__, __FUNCTION__ }, LOG_LEVEL_TRACE, fmt, ##__VA_ARGS__);
@@ -67,3 +69,6 @@ namespace commlib
 #define  LogWarn(fmt, ...)    spdlog::log({ __FILE__, __LINE__, __FUNCTION__ }, LOG_LEVEL_WARN, fmt, ##__VA_ARGS__);
 #define  LogError(fmt, ...)    spdlog::log({ __FILE__, __LINE__, __FUNCTION__ }, LOG_LEVEL_ERROR, fmt, ##__VA_ARGS__);
 #define  LogFatal(fmt, ...)    spdlog::log({ __FILE__, __LINE__, __FUNCTION__ }, LOG_LEVEL_FATAL, fmt, ##__VA_ARGS__);
+
+#endif // __LOG_H__
+

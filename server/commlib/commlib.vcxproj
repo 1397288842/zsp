@@ -73,6 +73,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>commlib</TargetName>
+    <OutDir>$(SolutionDir)bin\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -123,6 +124,8 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <UseFullPaths>false</UseFullPaths>
+      <DisableSpecificWarnings>4996;</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -196,7 +199,10 @@
     <ClInclude Include="macros.h" />
     <ClInclude Include="net_proxy.h" />
     <ClInclude Include="packet.h" />
+    <ClInclude Include="server_base.h" />
+    <ClInclude Include="server_net.h" />
     <ClInclude Include="stl.h" />
+    <ClInclude Include="stop_watch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\evpp\evpp\buffer.cc" />
