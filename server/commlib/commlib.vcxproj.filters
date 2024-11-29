@@ -22,6 +22,9 @@
     <Filter Include="evpp\udp">
       <UniqueIdentifier>{ce675886-b009-4e0e-9041-00f747566980}</UniqueIdentifier>
     </Filter>
+    <Filter Include="app">
+      <UniqueIdentifier>{0da0a112-66a1-4db4-afc8-bca8260d8d64}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="log.hpp">
@@ -174,6 +177,9 @@
     <ClInclude Include="server_base.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="app.h">
+      <Filter>app</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="packet.cpp">
@@ -247,6 +253,9 @@
     </ClCompile>
     <ClCompile Include="..\lib\evpp\evpp\udp\udp_server.cc">
       <Filter>evpp\udp</Filter>
+    </ClCompile>
+    <ClCompile Include="app.cpp">
+      <Filter>app</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

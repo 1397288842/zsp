@@ -193,6 +193,7 @@
     <ClInclude Include="..\lib\evpp\evpp\udp\udp_server.h" />
     <ClInclude Include="..\lib\evpp\evpp\utility.h" />
     <ClInclude Include="..\lib\evpp\evpp\windows_port.h" />
+    <ClInclude Include="app.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="log.hpp" />
@@ -227,6 +228,7 @@
     <ClCompile Include="..\lib\evpp\evpp\tcp_server.cc" />
     <ClCompile Include="..\lib\evpp\evpp\udp\sync_udp_client.cc" />
     <ClCompile Include="..\lib\evpp\evpp\udp\udp_server.cc" />
+    <ClCompile Include="app.cpp" />
     <ClCompile Include="net_proxy.cpp" />
     <ClCompile Include="packet.cpp" />
   </ItemGroup>
