@@ -2,10 +2,10 @@
 #define __APP_H__
 
 #include "common.h"
-#include "server_base.h"
 
 namespace commlib
 {
+	class ServerService;
 	class App
 	{
 	public:
@@ -13,11 +13,10 @@ namespace commlib
 		~App();
 		void Run();
 		void Start();
-		void Rigster(commlib::ServerBase* srv);
+		void Rigster(commlib::ServerService* srv);
 
 	private:
-		std::list<commlib::ServerBase*> srvs_;
-		std::thread thread_;
+		std::list<commlib::ServerService*> srvs_;
 	};
 }
 

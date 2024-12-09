@@ -110,6 +110,7 @@ void EventLoopThread::Join()
         catch (const std::system_error& e)
         {
             //LOG_ERROR << "Caught a system_error:" << e.what() << " code=" << e.code();
+            LogError("Caught a system_error: {} code = {}", e.what(), e.code());
         }
         thread_.reset();
     }

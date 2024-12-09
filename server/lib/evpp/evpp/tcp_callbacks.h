@@ -2,6 +2,10 @@
 
 #include "evpp/inner_pre.h"
 
+namespace commlib {
+    class NetPacket;
+}
+
 namespace evpp {
 class Buffer;
 class TCPConn;
@@ -25,4 +29,14 @@ inline void DefaultConnectionCallback(const TCPConnPtr&) {}
 inline void DefaultMessageCallback(const TCPConnPtr&, Buffer*) {}
 }
 
+class TCPHandler {
+public:
+    TCPHandler() {}
+    virtual ~TCPHandler() {}
+
+    virtual void OnAccept() {}
+    virtual void OnClose() {}
+    virtual void OnConnect(const TCPConnPtr& conn) {}
+    virtual void OnPacket(const TCPConnPtr& conn, commlib::NetPacket* pkt) {}
+};
 }

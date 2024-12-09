@@ -70,5 +70,6 @@ namespace commlib
 #define  LogError(fmt, ...)    spdlog::log({ __FILE__, __LINE__, __FUNCTION__ }, LOG_LEVEL_ERROR, fmt, ##__VA_ARGS__);
 #define  LogFatal(fmt, ...)    spdlog::log({ __FILE__, __LINE__, __FUNCTION__ }, LOG_LEVEL_FATAL, fmt, ##__VA_ARGS__);
 
+
 #endif // __LOG_H__
 

@@ -1,6 +1,7 @@
 
 #include "gateway_server.h"
 
+#include "net_packet.h"
 
 namespace gateway_server
 {
@@ -19,25 +20,34 @@ namespace gateway_server
 	{
 		while (true)
 		{
+
+			ExecAsyncTasks();
 			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
 	}
 
-	void Server::OnAccept(const evpp::TCPConnPtr* conn)
-	{
 
+	bool Server::Init()
+	{
+		return true;
+	}
+
+	void Server::OnAccept(const evpp::TCPConnPtr& conn)
+	{
+		conn->set_context(evpp::Any(commlib::PackType::PT_CLIENT));
+		LogInfo("accept new conn");
 	}
 
 
 	void Server::OnClose(const evpp::TCPConnPtr& conn)
 	{
-
+		LogInfo("close conn");
 	}
+	
 
-
-	void Server::OnMessage(const evpp::TCPConnPtr& conn, const char* data, int len)
+	void Server::OnPacket(const evpp::TCPConnPtr& conn, commlib::NetPacket* pkt)
 	{
-
+		LogInfo("recv data");
 	}
 
 }

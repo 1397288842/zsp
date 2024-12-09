@@ -3,7 +3,7 @@
 
 //#include "common.h"
 #include "evpp/tcp_conn.h"
-#include "packet.h"
+#include "net_packet.h"
 
 namespace commlib
 {
@@ -20,7 +20,7 @@ namespace commlib
 		std::mutex mutex_;
 
 	public:
-		Packet packet_;
+		NetPacket packet_;
 	};
 }
 

@@ -111,7 +111,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level1</WarningLevel>
+      <WarningLevel>Level3</WarningLevel>
       <SDLCheck>
       </SDLCheck>
       <PreprocessorDefinitions>WIN32;_WIN32;_DEBUG;SPDLOG_COMPILED_LIB;EVPP_EXPORTS;H_HAVE_CAMERON314_CONCURRENTQUEUE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -199,9 +199,11 @@
     <ClInclude Include="log.hpp" />
     <ClInclude Include="macros.h" />
     <ClInclude Include="net_proxy.h" />
-    <ClInclude Include="packet.h" />
-    <ClInclude Include="server_base.h" />
+    <ClInclude Include="net_service.h" />
+    <ClInclude Include="net_packet.h" />
+    <ClInclude Include="server_service.h" />
     <ClInclude Include="server_net.h" />
+    <ClInclude Include="service.h" />
     <ClInclude Include="stl.h" />
     <ClInclude Include="stop_watch.h" />
   </ItemGroup>
@@ -230,7 +232,9 @@
     <ClCompile Include="..\lib\evpp\evpp\udp\udp_server.cc" />
     <ClCompile Include="app.cpp" />
     <ClCompile Include="net_proxy.cpp" />
-    <ClCompile Include="packet.cpp" />
+    <ClCompile Include="net_service.cpp" />
+    <ClCompile Include="net_packet.cpp" />
+    <ClCompile Include="service.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\lib\evpp\evpp\CMakeLists.txt" />

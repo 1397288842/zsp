@@ -59,54 +59,21 @@ LONG MinidumpCrashHandler(EXCEPTION_POINTERS* pException)
 
 int main()
 {
+#ifdef _WIN32
 #ifdef _DEBUG
     SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)MinidumpCrashHandler);
 #endif // _DEBUG
 
-    auto log = std::make_shared<commlib::GlobalLog>();
-    log->init_log("./testt.log", 1);
-
-    WSADATA wsaData;
-
-    int wVersionRequested = MAKEWORD(2, 2);
-    int iResult = WSAStartup(wVersionRequested, &wsaData);
-    if (iResult != 0)
-    {
-        WSACleanup();
-        wprintf(L"WSAStartup failed: %d\n", iResult);
-        return -1;
-    }
-
-    std::string addr = "0.0.0.0:9099";
-    int thread_num = 4;
-    evpp::EventLoop loop;
-    evpp::TCPServer server(&loop, addr, "TCPEchoServer", thread_num);
-    commlib::NetProxy* gNet = new commlib::NetProxy();
-    server.SetMessageCallback([gNet](const evpp::TCPConnPtr & conn,
-                                     evpp::Buffer * msg)
-    {
-        LogDebug("Receive a message len:{}", msg->length());
-
-        if (gNet->packet_.ReadBuffer(msg))
-        {
-            conn->Send("shoudao");
-        }
-    });
-    server.SetConnectionCallback([](const evpp::TCPConnPtr & conn)
-    {
-        if (conn->IsConnected())
-        {
-            LogInfo( "A new connection from:{} ", conn->remote_addr());
-        }
-        else
-        {
-            LogInfo("Lost the connection from:{}  ", conn->remote_addr());
-        }
-    });
-    server.Init();
-    server.Start();
-    loop.Run();
-
+	WSADATA wsaData;
+	int wVersionRequested = MAKEWORD(2, 2);
+	int iResult = WSAStartup(wVersionRequested, &wsaData);
+	if (iResult != 0)
+	{
+		WSACleanup();
+		wprintf(L"WSAStartup failed: %d\n", iResult);
+		return -1;
+	}
+#endif // _WIN32
    
 
     //App app;

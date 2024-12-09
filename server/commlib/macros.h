@@ -4,7 +4,7 @@
 //#define ParsePacket(T,V) \
 //  T t;
 
-#define SafeDelete(p) delete p; p = nullptr;
+#define SafeDelete(p) if(p) {delete p;}p = nullptr;
 
 #define CommonNew(T) new T
 

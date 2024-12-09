@@ -1,17 +1,17 @@
 #ifndef ___SERVER_H__
 #define ___SERVER_H__
 #include "common.h"
-
+#include "service.h"
 
 namespace commlib
 {
-	class ServerBase
+	class ServerService: public Service
 	{
 	public:
-		ServerBase() = default;
-		virtual ~ServerBase() = default;
+		ServerService() {}
+		virtual ~ServerService() {}
 	public:
-		virtual void Run() = 0;
+		void Run() override {};
 	};
 }
 
