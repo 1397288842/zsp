@@ -242,6 +242,7 @@ namespace evpp
                 if (close_delay_.IsZero())
                 {
                     //DLOG_TRACE << "channel (fd=" << chan_->fd() << ") DisableReadEvent. delay time " << close_delay_.Seconds() << "s. We close this connection immediately";
+                    LogDebug("channel fd={}  DisableReadEvent. delay time:{}s. We close this connection immediately ",chan_->fd(), close_delay_.Seconds())
                     DelayClose();
                 }
                 else
@@ -250,6 +251,7 @@ namespace evpp
                     // connection for a while so that we can reply to it.
                     // And we set a timer to close the connection eventually.
                     //DLOG_TRACE << "channel (fd=" << chan_->fd() << ") DisableReadEvent. And set a timer to delay close this TCPConn, delay time " << close_delay_.Seconds() << "s";
+                    LogDebug("channel fd={}  DisableReadEvent. And set a timer to delay close this TCPConn, delay time:{}s", chan_->fd(), close_delay_.Seconds())
                     delay_close_timer_ = loop_->RunAfter(close_delay_, std::bind(&TCPConn::DelayClose, shared_from_this())); // TODO leave it to user layer close.
                 }
             }
