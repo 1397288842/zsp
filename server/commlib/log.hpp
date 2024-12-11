@@ -4,6 +4,7 @@
 #include "spdlog/spdlog.h"
 #include "spdlog/async.h"
 #include "spdlog/logger.h"
+#include "spdlog/common.h"
 #include "spdlog/fmt/fmt.h"
 #include "spdlog/fmt/bundled/printf.h"
 #include "spdlog/fmt/ostr.h"
@@ -25,7 +26,7 @@
 using namespace std;
 namespace commlib
 {
-	class GlobalLog final
+	class GlobalLog 
 	{
 	public:
 		GlobalLog() = default;
@@ -69,7 +70,6 @@ namespace commlib
 #define  LogWarn(fmt, ...)    spdlog::log({ __FILE__, __LINE__, __FUNCTION__ }, LOG_LEVEL_WARN, fmt, ##__VA_ARGS__);
 #define  LogError(fmt, ...)    spdlog::log({ __FILE__, __LINE__, __FUNCTION__ }, LOG_LEVEL_ERROR, fmt, ##__VA_ARGS__);
 #define  LogFatal(fmt, ...)    spdlog::log({ __FILE__, __LINE__, __FUNCTION__ }, LOG_LEVEL_FATAL, fmt, ##__VA_ARGS__);
-
 
 #endif // __LOG_H__
 

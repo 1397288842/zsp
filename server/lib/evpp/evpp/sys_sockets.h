@@ -6,8 +6,7 @@
 #ifdef H_OS_WINDOWS
 
 
-#include <string> // avoid compiling failed because of 'errno' redefined as 'WSAGetLastError()'
-#define errno WSAGetLastError()
+#include <string> 
 #include <windows.h>
 
 #include <ws2tcpip.h>

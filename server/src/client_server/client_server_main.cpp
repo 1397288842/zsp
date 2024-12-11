@@ -1,7 +1,7 @@
 ﻿// client_server.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
-#include "global.h"
+#include "comm_pre.h"
 #include "log.hpp"
 #include <iostream>
 
@@ -93,29 +93,29 @@ int main()
         //client.Disconnect();
     });
 
-    commlib::NetProxy* gNet = new commlib::NetProxy();
-    client.SetConnectionCallback([gNet](const evpp::TCPConnPtr & conn)
+    //commlib::NetProxy* gNet = new commlib::NetProxy();
+    client.SetConnectionCallback([/*gNet*/](const evpp::TCPConnPtr & conn)
     {
-        if (conn->IsConnected())
-        {
-            LogDebug("Connected to:{}", conn->remote_addr());
-            //conn->Send("hello");
-            //conn->Send("hello world");
+        //if (conn->IsConnected())
+        //{
+        //    LogDebug("Connected to:{}", conn->remote_addr());
+        //    //conn->Send("hello");
+        //    //conn->Send("hello world");
 
-            string ss = "";
-            for (auto i = 0; i < 75495; i++)
-            {
-                std::ostringstream  os;
-                os << 1;
-                ss += os.str();
-            }
-            LogDebug("sendlen:{}", ss.length());
-            gNet->SendProto(conn, 1, const_cast<char*>(ss.c_str()), ss.length());
-        }
-        else
-        {
-            conn->loop()->Stop();
-        }
+        //    string ss = "";
+        //    for (auto i = 0; i < 75495; i++)
+        //    {
+        //        std::ostringstream  os;
+        //        os << 1;
+        //        ss += os.str();
+        //    }
+        //    LogDebug("sendlen:{}", ss.length());
+        //    gNet->SendProto(conn, 1, const_cast<char*>(ss.c_str()), ss.length());
+        //}
+        //else
+        //{
+        //    conn->loop()->Stop();
+        //}
     });
     client.Connect();
     loop.Run();

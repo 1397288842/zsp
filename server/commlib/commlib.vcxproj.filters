@@ -30,7 +30,7 @@
     <ClInclude Include="log.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="global.h">
+    <ClInclude Include="comm_pre.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="net_packet.h">
@@ -267,6 +267,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="net_service.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="comm_pre.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

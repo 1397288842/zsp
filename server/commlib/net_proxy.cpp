@@ -5,7 +5,7 @@ namespace commlib
 {
 
 
-	NetProxy::NetProxy()
+	NetProxy::NetProxy(NetService* srv) : srv_net_(srv)
 	{
 
 	}
@@ -18,7 +18,6 @@ namespace commlib
 
 	void NetProxy::SendProto(const evpp::TCPConnPtr& conn, int cmd, char* data, int len)
     {
-        std::lock_guard<std::mutex> guard(mutex_);
 
         //PkgHeader head{};
         //head.cmd = cmd;
@@ -32,5 +31,11 @@ namespace commlib
         //buffer.Append(data, len);
         //conn->Send(&buffer);
     }
+
+
+	void NetProxy::SendProto(uint64_t hd, int cmd, char* data, int len)
+	{
+        srv_net_->Send(hd, &evpp::Slice(data, len));
+	}
 
 }

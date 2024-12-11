@@ -6,6 +6,11 @@
 #include "evpp/libevent.h"
 #include "evpp/sockets.h"
 
+#ifdef H_OS_WINDOWS
+// avoid compiling failed because of 'errno' redefined as 'WSAGetLastError()'
+#define errno WSAGetLastError()
+#endif
+
 namespace evpp
 {
 Listener::Listener(EventLoop* l, const std::string& addr)

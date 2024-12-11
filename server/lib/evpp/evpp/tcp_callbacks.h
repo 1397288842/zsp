@@ -34,8 +34,8 @@ public:
     TCPHandler() {}
     virtual ~TCPHandler() {}
 
-    virtual void OnAccept() {}
-    virtual void OnClose() {}
+    virtual void OnAccept(const TCPConnPtr& conn) {}
+    virtual void OnClose(const TCPConnPtr& conn) {}
     virtual void OnConnect(const TCPConnPtr& conn) {}
     virtual void OnPacket(const TCPConnPtr& conn, commlib::NetPacket* pkt) {}
 };

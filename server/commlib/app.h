@@ -2,21 +2,26 @@
 #define __APP_H__
 
 #include "common.h"
+#include "service.h"
 
 namespace commlib
 {
-	class ServerService;
 	class App
 	{
 	public:
+		using FuncService = std::function<Service*()>;
 		App();
 		~App();
 		void Run();
 		void Start();
-		void Rigster(commlib::ServerService* srv);
+		void Rigster(FuncService&& func);
 
 	private:
-		std::list<commlib::ServerService*> srvs_;
+		void AddService(Service* srv);
+
+	private:
+		std::list<FuncService> nodes_;
+		std::list<Service*> srvs_;
 	};
 }
 

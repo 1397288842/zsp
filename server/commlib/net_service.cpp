@@ -42,10 +42,10 @@ namespace commlib
 		server->SetMessageCallback([this, srv, h](const evpp::TCPConnPtr& conn, evpp::Buffer* msg) {
 				OnMessage(srv, h, conn, msg);
 			});
-		server->SetConnectionCallback([this, srv](const evpp::TCPConnPtr& conn){
+		server->SetConnectionCallback([this, srv, h](const evpp::TCPConnPtr& conn){
 				if (conn->IsConnected())
 				{
-					OnAccept(conn);
+					OnAccept(srv, h, conn);
 				}
 				else
 				{
@@ -81,15 +81,18 @@ namespace commlib
 
 	}
 
-	void NetService::OnAccept(const evpp::TCPConnPtr& conn)
+	void NetService::OnAccept(Service* srv, evpp::TCPHandler* handler, const evpp::TCPConnPtr& conn)
 	{
 		LogInfo("A new connection from:{} ", conn->remote_addr());
 		tcp_conns_.emplace(conn->id(), conn);
+		srv->RunInService([this, srv, handler, conn ]() {
+			handler->OnAccept(conn);
+		});
 	}
 
 	void NetService::OnClose(const evpp::TCPConnPtr& conn)
 	{
-		LogInfo("Lost the connection from:{}  ", conn->remote_addr());
+		LogInfo("close by remote peer:{}  ", conn->remote_addr());
 	}
 
 	void NetService::Send(uint64_t hd, evpp::Slice* buffer)

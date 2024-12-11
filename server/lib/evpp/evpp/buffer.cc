@@ -13,6 +13,11 @@
 #include "evpp/buffer.h"
 #include "evpp/sockets.h"
 
+#ifdef H_OS_WINDOWS
+// avoid compiling failed because of 'errno' redefined as 'WSAGetLastError()'
+#define errno WSAGetLastError()
+#endif
+
 namespace evpp
 {
     const char Buffer::kCRLF[] = "\r\n";
@@ -48,7 +53,7 @@ namespace evpp
             write_index_ = capacity_;
             Append(extrabuf, n - writable);
         }
-        LogDebug("read fd:{} len:{}", fd, n);
+        //LogDebug("read fd:{} len:{}", fd, n);
 
         return n;
     }

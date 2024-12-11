@@ -27,7 +27,7 @@ namespace commlib
 		void Stop();
 	public:
 		void OnMessage(Service* srv, evpp::TCPHandler* handler, const evpp::TCPConnPtr& conn, evpp::Buffer* msg);
-		void OnAccept(const evpp::TCPConnPtr& conn);
+		void OnAccept(Service* srv, evpp::TCPHandler* handler, const evpp::TCPConnPtr& conn);
 		void OnClose(const evpp::TCPConnPtr& conn);
 
 		void Send(uint64_t hd, evpp::Slice* buffer);
@@ -39,7 +39,7 @@ namespace commlib
 		std::mutex mutex_;
 		evpp::EventLoop* loop_;
 		std::unordered_map<string, evpp::TCPServer*> tcp_servers_;
-		std::unordered_map<int, evpp::TCPClient*> tcp_clients_;
+		std::unordered_map<uint64_t, evpp::TCPClient*> tcp_clients_;
 		std::unordered_map<uint64_t, evpp::TCPConnPtr> tcp_conns_;
 	};
 } // namespace commlib

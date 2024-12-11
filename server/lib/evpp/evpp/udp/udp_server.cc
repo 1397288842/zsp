@@ -6,6 +6,11 @@
 
 #include "udp_server.h"
 
+#ifdef H_OS_WINDOWS
+// avoid compiling failed because of 'errno' redefined as 'WSAGetLastError()'
+#define errno WSAGetLastError()
+#endif
+
 namespace evpp
 {
 namespace udp

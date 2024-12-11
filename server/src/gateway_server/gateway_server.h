@@ -8,11 +8,12 @@
 
 namespace commlib {
 	class NetPacket;
+	class App;
 }
 
 namespace gateway_server
 {
-	class Server : public commlib::ServerService
+	class Server : public commlib::ServerService, public evpp::TCPHandler
 	{
 	public:
 		Server();
@@ -22,10 +23,12 @@ namespace gateway_server
 		void Run() override;
 		bool Init() override;
 
-		void OnAccept(const evpp::TCPConnPtr& conn);
-		void OnClose(const evpp::TCPConnPtr& conn);
-		void OnPacket(const evpp::TCPConnPtr& conn, commlib::NetPacket* pkt);
+		void OnAccept(const evpp::TCPConnPtr& conn) override;
+		void OnClose(const evpp::TCPConnPtr& conn) override;
+		void OnConnect(const evpp::TCPConnPtr& conn) override;
+		void OnPacket(const evpp::TCPConnPtr& conn, commlib::NetPacket* pkt) override;
 	public:
+		static void Install(commlib::App* app);
 	};
 }
 

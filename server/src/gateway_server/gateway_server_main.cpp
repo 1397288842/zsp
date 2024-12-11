@@ -21,7 +21,7 @@
 #include "net_proxy.h"
 
 #include "app.h"
-
+#include "gateway_server.h"
 
 
 #ifdef _WIN32
@@ -76,12 +76,10 @@ int main()
 #endif // _WIN32
    
 
-    //App app;
-    //app.Rigster(gSrv);
-    //capp::App app( new GatewayServer() );
-    ////app.Add(new GatewayServer());
-    //app.Start();
-    //app.Run();
+    commlib::App app;
+    gateway_server::Server::Install(&app);
+    app.Start();
+    app.Run();
 
 #ifdef _WIN32
     WSACleanup();

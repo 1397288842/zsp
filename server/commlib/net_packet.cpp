@@ -10,8 +10,16 @@ namespace commlib
             return -1;
         }
 
+
         if (type_ == PackType::PT_CLIENT)
         {
+
+			if (msg->size() < CLIENT_PACKET_HEADER_LENGTH)
+			{
+                LogError("evpp buffer size not illegal");
+                return -1;
+			}
+
             ReadClient(msg);
         }
         else if (type_ == PackType::PT_SERVER)

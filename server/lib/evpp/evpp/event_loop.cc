@@ -5,6 +5,11 @@
 #include "evpp/event_loop.h"
 #include "evpp/invoke_timer.h"
 
+#ifdef H_OS_WINDOWS
+// avoid compiling failed because of 'errno' redefined as 'WSAGetLastError()'
+#define errno WSAGetLastError()
+#endif
+
 namespace evpp
 {
     EventLoop::EventLoop()

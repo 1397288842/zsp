@@ -1,19 +1,20 @@
-#include "app.h"
-#include "server_service.h"
+ï»¿#include "app.h"
+#include "net_service.h"
+#include "comm_pre.h"
+//#include "log.hpp"
 
 namespace commlib
 {
-	GlobalLog* g_log = nullptr;
-	static void InitGlobalLog()
-	{
-		g_log = new GlobalLog();
-	}
+	//GlobalLog* g_log = nullptr;
+	//void InitGlobalLog()
+	//{
+	//	g_log = new GlobalLog();
+	//}
 
-	static void DestroyGlobalLog()
-	{
-		delete g_log;
-		g_log = nullptr;
-	}
+	//void DestroyGlobalLog()
+	//{
+	//	SafeDelete(g_log);
+	//}
 
 	extern std::condition_variable& exit_cv();
 	extern std::mutex& exit_mtx();
@@ -44,8 +45,17 @@ namespace commlib
 
 	void App::Start()
 	{
-		// ³õÊ¼»¯ÈÕÖ¾
+		gSrvNet = new NetService();
+		AddService(gSrvNet);
+
+		// åˆå§‹åŒ–æ—¥å¿—
 		g_log->init_log("./testt.log", 1);
+
+		for (auto& it:nodes_)
+		{
+			 auto service = it();
+			 AddService(service);
+		}
 
 		for (auto *it:srvs_)
 		{
@@ -53,11 +63,16 @@ namespace commlib
 		}
 	}
 
+	void App::Rigster(FuncService&& func)
+	{
+		nodes_.push_back(func);
+	}
 
-	void App::Rigster(commlib::ServerService* srv)
+	void App::AddService(Service* srv)
 	{
 		srvs_.push_back(srv);
 	}
+
 }
 
 
